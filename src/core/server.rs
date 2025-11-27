@@ -18,6 +18,8 @@ impl HttpServer {
         }
     }
 
+
+    #[tokio::main]
     pub async fn listen(&self, port: u32) {
         let listen = TcpListener::bind(format!("127.0.0.1:{}", port))
             .await
