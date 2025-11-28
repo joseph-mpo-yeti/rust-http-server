@@ -34,7 +34,7 @@ To include this library directly from Git, add the following to your `Cargo.toml
 
 ```toml
 [dependencies]
-http = { git = "https://github.com/joseph-mpo-yeti/rust-http-sever.git" }
+http = { git = "https://github.com/joseph-mpo-yeti/rust-http-server.git" }
 ```
 
 ## 🧪 Example 
