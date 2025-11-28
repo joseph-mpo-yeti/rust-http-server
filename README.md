@@ -2,7 +2,10 @@
 
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Rust](https://img.shields.io/badge/Rust-brown?logo=rust&logoColor=white)
 ![Build Status](https://github.com/joseph-mpo-yeti/rust-http-server/actions/workflows/rust.yml/badge.svg)
+![Deps.rs Crate Dependencies (latest)](https://img.shields.io/deps-rs/tokio/1.48.0)
+
 
 
 A **very basic asynchronous HTTP server library written in Rust** — minimal, educational, and easy to extend. Inspired by Node's Express framework.
