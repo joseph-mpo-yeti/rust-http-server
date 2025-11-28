@@ -1,18 +1,9 @@
 use super::logging::Logging;
 use super::parser::Parser;
 use super::router::HttpRouter;
-use crate::types::request::HttpRequest;
 use crate::types::response::HttpResponse;
 
-use std::{
-    collections::HashMap,
-    fmt::{Debug, Display},
-    io::{Error, Read, Write},
-    str::{self},
-    sync::{Arc, Mutex, atomic::AtomicU32, atomic::Ordering::SeqCst},
-    thread::{self},
-    time::{self},
-};
+use std::{io::Error, sync::Arc};
 
 use tokio::{io::AsyncWriteExt, net::TcpStream};
 
@@ -37,6 +28,7 @@ impl HttpRequestHandler {
         let request = match parse_result {
             Ok(request) => request,
             Err(err) => {
+                log::error!("{}", err);
                 let response = HttpResponse::builder()
                     .status_code(crate::types::status::StatusCode::BadRequest)
                     .build();

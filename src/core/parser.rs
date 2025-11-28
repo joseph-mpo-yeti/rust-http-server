@@ -2,17 +2,8 @@ use crate::core::logging::Logging;
 
 use crate::types::method::*;
 use crate::types::request::*;
-use crate::types::response::*;
 
-use crate::types::method::*;
-use crate::types::request::*;
-use crate::types::response::*;
-
-use std::{
-    collections::HashMap,
-    io::{Error, Read, Write},
-    sync::{Arc, Mutex},
-};
+use std::{collections::HashMap, io::Error};
 
 use tokio::io::AsyncReadExt;
 use tokio::net::TcpStream;
@@ -56,7 +47,7 @@ impl Parser {
             }
         }
 
-        let mut req: Vec<&str> = request_content
+        let req: Vec<&str> = request_content
             .split("\r\n\r\n")
             .filter(|x| !x.is_empty())
             .collect();
@@ -85,7 +76,7 @@ impl Parser {
 
                 log::debug!("parsed-headers: {req_headers:?}");
 
-                let mut headers = self.parse_headers(lines);
+                let headers = self.parse_headers(lines);
                 let body = self.parse_request_body(socket, req, &headers).await;
 
                 Ok(HttpRequest::new(

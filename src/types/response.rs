@@ -1,8 +1,4 @@
-use std::{
-    collections::HashMap,
-    error::Error,
-    fmt::{self, Display},
-};
+use std::{collections::HashMap, error::Error, fmt::Display};
 
 use super::status::StatusCode;
 

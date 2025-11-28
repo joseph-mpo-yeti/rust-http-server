@@ -75,12 +75,4 @@ impl Route {
         handlers.insert(method, handler);
         Self { handlers }
     }
-
-    pub fn add_route(
-        &mut self,
-        method: HttpRequestMethod,
-        handler: fn(HttpRequest) -> HttpResponse,
-    ) {
-        self.handlers.insert(method, handler);
-    }
 }

@@ -1,6 +1,6 @@
 use std::{fmt::Debug, sync::Arc};
 
-use super::{handler::HttpRequestHandler, logging::Logging, parser::Parser, router::HttpRouter};
+use super::{handler::HttpRequestHandler, logging::Logging, router::HttpRouter};
 
 use tokio::net::TcpListener;
 
@@ -18,7 +18,6 @@ impl HttpServer {
         }
     }
 
-
     #[tokio::main]
     pub async fn listen(&self, port: u32) {
         let listen = TcpListener::bind(format!("127.0.0.1:{}", port))
@@ -30,7 +29,7 @@ impl HttpServer {
 
         loop {
             match listen.accept().await {
-                Ok((mut socket, _)) => {
+                Ok((socket, _)) => {
                     let s_router = self.router.clone();
                     let mut handler = HttpRequestHandler::new(s_router);
                     // pin!(socket);
