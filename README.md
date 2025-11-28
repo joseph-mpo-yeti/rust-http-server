@@ -1,6 +1,11 @@
 # rust-http-sever
 
-A **very basic asynchronous HTTP server library written in Rust** — minimal, educational, and easy to extend.
+
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Build Status](https://github.com/joseph-mpo-yeti/rust-http-server/actions/workflows/rust.yml/badge.svg)
+
+
+A **very basic asynchronous HTTP server library written in Rust** — minimal, educational, and easy to extend. Inspired by Node's Express framework.
 
 ## 🚀 What is this
 
